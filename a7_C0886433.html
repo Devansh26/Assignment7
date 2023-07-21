@@ -3,6 +3,23 @@
 
 <head>
 	<title>Final test lab</title>
+
+	<!-- Add styles for the table -->
+	<style>
+		#dataTable {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		#dataTable th,
+		#dataTable td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: center;
+		}
+	</style>
+
 </head>
 
 <body>
@@ -14,7 +31,7 @@
 
 	<button id="b2" onclick="addColumn()">Add Column</button>
 	<button id="b3" onclick="addRow()">Add Row</button>
-	<br><br><br>
+
 	<div id="tableContainer"></div>
 
 	<script language="javascript">
