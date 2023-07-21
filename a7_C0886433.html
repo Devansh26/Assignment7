@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Final test lab</title>
 </head>
+
 <body>
 	<font size="8" color="green">Final test lab</font><br><br>
 	<p id="display"> Number of rows: <input type="number" id="t1" /><br><br> </p>
 	<p id="display"> Number of cols: <input type="number" id="t2" /><br><br> </p>
-	
+
 	<button id="b1" onclick="generateTable()">Generate Table</button><br><br>
-	
+
 	<button id="b2" onclick="addColumn()">Add Column</button>
 	<button id="b3" onclick="addRow()">Add Row</button>
 	<br><br><br>
 	<div id="tableContainer"></div>
-	
+
 	<script language="javascript">
+
+		// generate the table from the input row and column
 		function generateTable() {
 			var rows = parseInt(document.getElementById('t1').value);
 			var cols = parseInt(document.getElementById('t2').value);
@@ -30,10 +34,12 @@
 			}
 			tableHTML += '</table>';
 
+			// create the table element
 			document.getElementById('tableContainer').innerHTML = tableHTML;
 			clearInitialContent();
 		}
 
+		//method to add new column
 		function addColumn() {
 			var table = document.getElementById('dataTable');
 			var rows = table.getElementsByTagName('tr');
@@ -41,10 +47,11 @@
 			for (var i = 0; i < rows.length; i++) {
 				var cell = document.createElement('td');
 				cell.textContent = 'New Cell';
-				rows[i].appendChild(cell);
+				rows[i].appendChild(cell); // append to existing table 
 			}
 		}
 
+		//method to add new row
 		function addRow() {
 			var table = document.getElementById('dataTable');
 			var newRow = document.createElement('tr');
@@ -53,19 +60,21 @@
 			for (var i = 0; i < cols; i++) {
 				var cell = document.createElement('td');
 				cell.textContent = 'New Cell';
-				newRow.appendChild(cell);
+				newRow.appendChild(cell); // append to existing table 
 			}
 
-			table.appendChild(newRow);
+			table.appendChild(newRow); // append using table object
 		}
 
+		// clear evry content before generating table
 		function clearInitialContent() {
 			var elementsToRemove = document.querySelectorAll('font, #t1, #t2, #b1, #display ');
-			elementsToRemove.forEach(function(element) {
+			elementsToRemove.forEach(function (element) {
 				element.style.display = 'none';
 			});
 
 		}
 	</script>
 </body>
+
 </html>
